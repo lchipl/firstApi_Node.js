@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Список пользователей</title>
+    <style>
+       
+        button {
+    background-color: #CF649A;
+    border:1px solid white;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor:pointer;
+    border-radius:5px;
+}
+hr{
+    color:#C36859;
+}
+button:hover{
+    background-color: #6B717F;
+}
+input[type=text]{
+    width:100%;
+    height:30px;
+    border-radius:5px;
+    
+}
+input[type=text]:hover{
+    background-color:#FFFFCC;
+}
+
+table {
+    width:100%;
+    border-radius:5px;
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 14px;
+border-collapse: collapse;
+text-align: center;
+}
+h2{
+    background: #F8F8F8;
+    height:40px;
+}
+    </style>
+    </head>
+<body>
+    <div id="wrapper">
+ <h2>Регистрация</h2>
+    <form name="userForm" method="post" action="/user">
+   
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input type="text" name="name" required  />
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input type="text" name="age" required pattern="^[ 0-9]+$" />
+        </div>
+        <div class="panel-body">
+            <button type="submit" >Добавить</button>
+            
+        </div>
+    </form>
+    <div id="formAction">
+    <h2>Вывести на экран</h2>
+    <form method="post" action="/users">
+    <button>Всех пользователей</button>
+</form>
+            <form method="post" action="users/:id">
+                <input type="text" name="searchForId" placeholder="Введите его id" required>
+            <button>Одного пользователя</button>
+            </form>
+            <hr>
+            <h2>Удалить</h2>
+            <label for="delForId">Пользователя</label>
+            <form method="post" id="delT" action="user/delete">
+                <input type="text" name="delOne" placeholder="Введите его id" required>
+            <button>Клик</button>
+            </form>
+            <label for="delForId">Очистить весь массив</label>
+            <form method="post" action="users/delete">
+            <button>Клац</button>
+        </div>
+    </div>
+</form>
+</div>
+</body>
+</html>
